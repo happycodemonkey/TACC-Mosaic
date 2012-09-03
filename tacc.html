@@ -1,1 +1,45 @@
-/home/happycodemonkey/htdocs/tacc.html
+<html>
+<head>
+<link href="assets/css/site.css" rel="stylesheet" type="text/css">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script src="assets/javascript/jquery.transit.min.js"></script>
+<script>
+$(document).ready( function() {
+
+	// @TODO: automate this somehow...config file?
+	var images = [
+		"Bill_Barth",
+		"Aubrey_Wilkerson",
+		"Chris_Hempel",
+		"Chris_Jordan",
+		"Dan_Stanzione"
+	];
+
+	for (var i = 0; i < images.length; i++) {
+		$("#tile_wrapper").append("<li class='image' id='" + images[i] + "'><img src='assets/tacc/" + images[i] + ".jpg' /></li>");
+	}
+
+	$('.image').live("mouseover", function() {
+		//$(this).html($(this).attr('id'));
+		$(this).transition({
+		    perspective: '100px',
+		    rotateY: '180deg'
+		});
+	});
+
+	$('.image').live("mouseout", function() {
+		$(this).removeAttr("style");
+	});
+});
+</script>
+<title>TACC</title>
+</head>
+<body>
+<div id="image_wrapper">
+	<img id="overlay" src="assets/tacc/TACC.png" />
+	<ul id="tile_wrapper">
+		
+	</ul>
+</div>
+</body>
+</html>
