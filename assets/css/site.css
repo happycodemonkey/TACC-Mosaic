@@ -11,12 +11,20 @@ div#image_wrapper img#overlay {
   pointer-events: none; }
 div#image_wrapper ul#tile_wrapper {
   list-style: none;
-  width: 465px; }
+  width: 2000px; }
   div#image_wrapper ul#tile_wrapper li {
     float: left;
     padding: 0;
     margin: 0 5px 10px 5px; }
     div#image_wrapper ul#tile_wrapper li img {
+      background-color: white;
+      padding: 7px;
+      margin: 0;
+      border: 1px dotted #58595b;
+      width: 129px;
+      height: 145px; }
+    div#image_wrapper ul#tile_wrapper li .blank_side {
+      display: none;
       background-color: white;
       padding: 7px;
       margin: 0;

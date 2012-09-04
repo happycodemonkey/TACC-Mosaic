@@ -7,27 +7,30 @@
 $(document).ready( function() {
 
 	// @TODO: automate this somehow...config file?
-	var images = [
-		"Bill_Barth",
-		"Aubrey_Wilkerson",
-		"Chris_Hempel",
-		"Chris_Jordan",
-		"Dan_Stanzione"
-	];
 
-	for (var i = 0; i < images.length; i++) {
-		$("#tile_wrapper").append("<li class='image' id='" + images[i] + "'><img src='assets/tacc/" + images[i] + ".jpg' /></li>");
-	}
+	$.ajax({
+		url: 'files.php',
+		data: { directory: "assets/images/tacc"}, 
+		success: function(data) {
+			$('#tile_wrapper').append(data);
+		}
+	});
 
-	$('.image').live("mouseover", function() {
-		//$(this).html($(this).attr('id'));
+	$('.image').live("mouseenter", function() {
+		$(this).find('.blank_side').show();
+		$(this).find('.image_side').hide();
+
 		$(this).transition({
 		    perspective: '100px',
 		    rotateY: '180deg'
 		});
+
+		$(this).find('.blank_side').html($(this).attr('id'));
 	});
 
-	$('.image').live("mouseout", function() {
+	$('.image').live("mouseleave", function() {
+		$(this).find('.blank_side').hide();
+		$(this).find('.image_side').show();
 		$(this).removeAttr("style");
 	});
 });
@@ -36,7 +39,7 @@ $(document).ready( function() {
 </head>
 <body>
 <div id="image_wrapper">
-	<img id="overlay" src="assets/tacc/TACC.png" />
+	<img id="overlay" src="assets/images/TACC.png" />
 	<ul id="tile_wrapper">
 		
 	</ul>

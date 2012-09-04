@@ -15,7 +15,7 @@ div#image_wrapper {
 
 	ul#tile_wrapper {
 		list-style: none;
-		width: 465px;
+		width: 2000px;
 
 		li {
 			float: left;
@@ -29,7 +29,20 @@ div#image_wrapper {
 				border: 1px dotted #58595b;
 				width: 129px;
 				height: 145px;
+
 			}
+
+			.blank_side {
+				display: none;
+				background-color: white;
+				padding: 7px; 
+				margin: 0;
+				border: 1px dotted #58595b;
+				width: 129px;
+				height: 145px;
+				
+			}
+
 		} 
 
 	}
